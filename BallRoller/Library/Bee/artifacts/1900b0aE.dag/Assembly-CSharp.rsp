@@ -360,6 +360,7 @@
 "Assets/mainLevelObstacleController.cs"
 "Assets/Player controler.cs"
 "Assets/playerControlls.cs"
+"Assets/SceneManagement.cs"
 "Assets/UIController.cs"
 -langversion:9.0
 

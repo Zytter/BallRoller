@@ -38,6 +38,7 @@ public class Ballshoot : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             actualForceValue = 0;
+            
         }
 
         if (Input.GetKeyUp(KeyCode.Space)&& !isPlayerOnScene && !isLevelFinished)
@@ -63,6 +64,11 @@ public class Ballshoot : MonoBehaviour
             chargeTime = Mathf.Clamp(chargeTime, 0f, maxChargeTime);
 
             actualForceValue = chargeTime;
+        }
+
+        if(isPlayerOnScene)
+        {
+            charging = false;
         }
     }
 }

@@ -6,15 +6,24 @@ public class LevelFinisher : MonoBehaviour
 {
 
     public bool isWinningColl = true;
-   // [SerializeField]private GameObject Winscreen;
     
+
+
+    private float fixedDeltaTime;
+
+    void Awake()
+    {
+        // Make a copy of the fixedDeltaTime, it defaults to 0.02f, but it can be changed in the editor
+        this.fixedDeltaTime = Time.fixedDeltaTime;
+    }
+
 
 
     // Update is called once per frame
     void Update()
     {
- 
-      
+
+        
 
 
     }
@@ -25,9 +34,16 @@ public class LevelFinisher : MonoBehaviour
         {
             Debug.Log("Collision Detected, player Won");
             Debug.Log("Player ended up with: " + mainLevelObstacleController.playerPoints+ "points");
+            //time scaling
+            Time.timeScale = .2f;
+            Debug.Log("Time slowdown to .2f has been applied");
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
             Ballshoot.isLevelFinished = true;
     
         
+        } else
+        {
+            Time.fixedDeltaTime = this.fixedDeltaTime * Time.timeScale;
         }
 
         if (other.CompareTag("Player") && !isWinningColl)
@@ -36,6 +52,7 @@ public class LevelFinisher : MonoBehaviour
             Destroy(other.gameObject);
             mainLevelObstacleController.playerPoints = 0;
         }
+
 
     }
 

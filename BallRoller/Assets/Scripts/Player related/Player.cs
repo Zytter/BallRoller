@@ -4,30 +4,48 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int Level;
-    public float Points;
+   [System.NonSerialized] public int Level;
+   [System.NonSerialized] public float Points;
     public bool updatingValuesToSave = true;
+    public bool isThatMainMenu;
+   [System.NonSerialized]public bool saveNow;
 
 
     void Start()
     {
-        SavePlayer();
+
+        if(isThatMainMenu)
+        {
+            Debug.Log("Not saving progress");
+        } else
+        {
+            SavePlayer();
+        }
+        
         
     }
 
-    void Update()
+    public void Update()
     {
         if (updatingValuesToSave)
         {
-            Level = SceneManagement.LevelToSave;
-            Points = SceneManagement.globalPlayerPoints;
-           // Debug.Log("Detected value" + Level);
+             Level = SceneManagement.LevelID;
+             Points = SceneManagement.globalPlayerPoints;
+
+            if (saveNow)
+            {
+                Debug.Log("Progress saved L: " + Level + " P: " + Points);
+                SaveSystem.SavePlayer(this);
+                saveNow = false;
+            }
+          
+            //Debug.Log("Detected value" + Level);
         }
     }
 
-    
 
-    public void ResetSave()
+
+    private void ResetSave()
     {
         updatingValuesToSave = false;
         Level = 0;
@@ -36,12 +54,10 @@ public class Player : MonoBehaviour
         Debug.Log("Overwritten values L: " + Level + " P: " + Points);
         updatingValuesToSave = true;
     }
-
+ 
     public void SavePlayer()
     {
-
-        Debug.Log("Progress saved");
-        SaveSystem.SavePlayer(this);
+        saveNow = true; 
     }
 }
 //

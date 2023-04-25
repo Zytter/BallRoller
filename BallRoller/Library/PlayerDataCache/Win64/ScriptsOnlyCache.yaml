@@ -65,6 +65,12 @@ ScriptsOnlyBuild:
   methodsToPreserve:
   - assembly: Assembly-CSharp
     fullTypeName: mainMenu
+    methodName: DisplayMemValues
+  - assembly: Assembly-CSharp
+    fullTypeName: Player
+    methodName: ResetSave
+  - assembly: Assembly-CSharp
+    fullTypeName: mainMenu
     methodName: LoadLevel
   - assembly: Assembly-CSharp
     fullTypeName: SceneManagement
@@ -333,6 +339,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1548}
     - Class: 114
+      Script: {instanceID: 2162}
+    - Class: 114
       Script: {instanceID: 2260}
     - Class: 114
       Script: {instanceID: 2704}
@@ -459,7 +467,7 @@ ScriptsOnlyBuild:
     className: CinemachineCollider
   - hash:
       serializedVersion: 2
-      Hash: f6c4d77867cc4f4a2a4eae89f5aca5a0
+      Hash: dd73d4a687b715943cb9dfccedce1a60
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -1221,7 +1229,7 @@ ScriptsOnlyBuild:
     className: CinemachineImpulseListener
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: a212d9cba08cfba724317f1026e48a36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: mainMenu
@@ -1377,7 +1385,7 @@ ScriptsOnlyBuild:
     className: UnityOnMoveMessageListener
   - hash:
       serializedVersion: 2
-      Hash: e0d38813b7b955cae54c54c56b3c5229
+      Hash: d766dbbc13d9f808c35d8d45a6da052d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneManagement

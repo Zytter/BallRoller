@@ -121,7 +121,7 @@ public class SceneManagement : MonoBehaviour
         globalPlayerPoints += mainLevelObstacleController.playerPoints;
         Debug.Log("Global player points :" + globalPlayerPoints);
 
-        LevelToSave = LevelID;
+       // LevelToSave = LevelID;
         
     }
 
